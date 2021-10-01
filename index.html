@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Todo app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/m-styles.css">
+</head>
+
+<body>
+  <main>
+    <div class="header">
+      <h1>TODO</h1>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="changeIcon"></div>
+      </label>
+    </div>
+    <div class="createListC">
+      <label>
+        <span class="checkmarkNewList"></span>
+        <input type="text" name="newList" id="newListId" placeholder="Create a new todo...">
+      </label>
+    </div>
+    <div class="main">
+      <ul class="listAllC">
+        <li class="listC" draggable="true">
+          <input type="checkbox" checked="checked" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">Complete online JavaScript course</div>
+          <div class="cross"></div>
+        </li>
+        <li class="listC" draggable="true">
+          <input type="checkbox" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">Job around the park 3x</div>
+          <div class="cross"></div>
+        </li>
+        <li class="listC" draggable="true">
+          <input type="checkbox" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">10 minutes meditation</div>
+          <div class="cross"></div>
+        </li>
+        <li class="listC" draggable="true">
+          <input type="checkbox" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">Read for 1 hour</div>
+          <div class="cross"></div>
+        </li>
+        <li class="listC" draggable="true">
+          <input type="checkbox" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">Pick up groceries</div>
+          <div class="cross"></div>
+        </li>
+        <li class="listC" draggable="true">
+          <input type="checkbox" class="checkbox">
+          <span class="checkmark"></span>
+          <div class="listName">Complete Todo App on Frontend Mentor</div>
+          <div class="cross"></div>
+        </li>
+      </ul>
+      <div class="bottomFunction">
+        <div class="itemsLeft"></div>
+        <div class="showOnly">
+          <a class="btn showAll active">All</a>
+          <a class="btn showOnlyActive">Active</a>
+          <a class="btn showOnlyCompleted">Completed</a>
+        </div>
+        <div class="clearCompleted">Clear Completed</div>
+      </div>
+      <div class="showOnlyMobile">
+        <a class="btn showAll active">All</a>
+        <a class="btn showOnlyActive">Active</a>
+        <a class="btn showOnlyCompleted">Completed</a>
+      </div>
+      <div class="footer">
+        <p>Drag and drop to reorder list</p>
+      </div>
+    </div>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/TpPoom">Tp Poom</a>.
+  </div>
+
+  <script src="main.js"></script>
+  <script src="theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Check-Background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+
+    /*-----light-----*/
+    --background-Img: url("../images/bg-desktop-light.jpg")   no-repeat top/100%;
+    --theme-Icon: url("../images/icon-moon.svg") no-repeat;
+
+    --background-Color: hsl(0, 0%, 98%);
+    --background-List-Color: hsl(0, 0%, 98%);
+    --border-Color: hsl(236, 33%, 92%);
+    --input-Checked: hsl(233, 11%, 84%);
+    --footer-Color: hsl(236, 9%, 61%);
+    --hover-Color: hsl(235, 19%, 35%);
+    --text-Color: hsl(235, 19%, 35%);
+}
+
+[data-theme='dark'] {  
+    --background-Img: url("../images/bg-desktop-dark.jpg")   no-repeat top/100%;
+    --theme-Icon: url("../images/icon-sun.svg") no-repeat;
+    
+    --background-Color: hsl(235, 21%, 11%);
+    --background-List-Color: hsl(235, 24%, 19%);
+    --text-Color: hsl(234, 39%, 85%);
+    --hover-Color: hsl(236, 33%, 92%);
+    --input-Checked: hsl(234, 11%, 52%);
+    --footer-Color: hsl(233, 14%, 35%);
+    --border-Color: hsl(237, 14%, 26%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    background: var(--background-Img);
+    background-color: var(--background-Color);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.header {
+    color: var(--Very-Light-Gray);
+    width: 37.5%;
+    display: inline-block;
+    font-size: 20px;
+    position: absolute;
+    top: 9%;
+}
+.header h1 {
+    display: inline-block;
+    letter-spacing: .4em;
+}
+.changeIcon {
+    background: var(--theme-Icon);
+    height: 27px;
+    width: 27px;
+}
+.theme-switch {
+    float: right;
+    cursor: pointer;
+}
+.theme-switch input {
+    display:none;
+}
+
+.createListC {
+    width: 37.5%;
+    height: 62px;
+    padding: 1.1em 1.3em;
+    background-color: var(--background-List-Color);
+    border-radius: .3rem;
+    position: absolute;
+    top: 20%;
+}
+.createListC input {
+    border: none;
+    background: none;
+    font-size: 18px;
+    padding: 0.2em 2.85em;
+    width: 100%;
+    color: var(--text-Color);
+}
+.createListC input:focus {
+    outline: none;
+}
+.checkmarkNewList {
+    position: absolute;
+    margin: 0 .2em;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--border-Color);
+}
+.checkmarkNewList:after {
+    content: "\002B";
+    color: var(--text-Color);
+    font-size: 30px;
+    line-height: 23px;
+    padding: 3.265px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 37.5%;
+    background-color: var(--background-List-Color);
+    border-radius: .3rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px;
+    position: absolute;
+    top: 30.8%;
+}
+.listC {
+    height: 62px;
+    border-bottom: 1px solid var(--border-Color);
+    display: block;
+    position: relative;
+    padding: 1.08em 1.3em;
+    cursor: pointer;
+    user-select: none;
+    overflow: auto;
+}
+.listC.dragging {
+    opacity: .2;
+}
+.listC input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+.checkmark {
+    position: absolute;
+    margin: 0 .2em;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--border-Color);
+}
+.listC:hover input:not(:checked) ~ .checkmark {
+    background: var(--Check-Background);
+}
+.listC:hover input:not(:checked) ~ .checkmark:after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+    background-color: var(--background-List-Color);
+}
+.listC input:checked ~ .checkmark {
+    background: var(--Check-Background);
+}
+.listC input:checked ~ .checkmark:after {
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(../images/icon-check.svg) center no-repeat;
+    background-size: 11px;
+}
+.listName {
+    color: var(--text-Color);
+    padding: 0.22em 2.85em;
+    font-size: 18px;
+}
+.listC input:checked ~ .listName {
+    color: var(--input-Checked);
+    text-decoration: line-through;
+}
+.cross {
+    display: none;
+    content: "";
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    width: 18px;
+    height: 18px;
+    background: url("../images/icon-cross.svg") no-repeat;
+}
+.listC:hover .cross {
+    display: block;
+}
+
+.bottomFunction {
+    height: 50px;
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    display: grid;
+    grid-template-columns: 31% 37% 32%;
+    font-size: 15px;
+    color: var(--footer-Color);
+}
+.showOnly {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.btn {
+    text-align: center;
+    font-weight: 700;
+}
+.btn.active {
+    color: var(--Bright-Blue) !important;
+}
+.showAll:hover, .showOnlyActive:hover, .showOnlyCompleted:hover, .clearCompleted:hover{
+    color: var(--hover-Color);
+    cursor: pointer;
+}
+.showOnlyMobile {
+    display: none;
+}
+.clearCompleted {
+    text-align: end;
+    cursor: pointer;
+}
+.footer {
+    position: absolute;
+    height: 80px;
+    bottom: -140px;
+    width: 100%;
+}
+.footer p{
+    color: var(--footer-Color);
+    font-size: 14px;
+    text-align: center;
+}
+.noList {
+    width: 100%;
+    text-align: center;
+    padding-top: .4em;
+    color: var(--footer-Color);
+}

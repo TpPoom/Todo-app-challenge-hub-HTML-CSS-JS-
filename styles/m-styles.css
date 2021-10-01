@@ -1,0 +1,70 @@
+@media only screen and (max-width: 800px) {
+    :root {
+        /*-----light-----*/
+        --background-Img: url("../images/bg-mobile-light.jpg")   no-repeat top/100%;
+    }
+    
+    [data-theme='dark'] {  
+        --background-Img: url("../images/bg-mobile-dark.jpg")   no-repeat top/100%;
+    }
+    
+    .header,
+    .createListC,
+    .main {
+        width: 90%;
+    }
+    .header {
+        font-size: 14px;
+        top: 6%;
+    }
+    .changeIcon {
+        background-size: 22px;
+    }
+    .createListC {
+        top: 13.2%;
+        height: 56px;
+        padding: 1em 1.3em;
+    }
+    .main {
+        top: 22%;
+    }
+
+    .createListC input,
+    .listName,
+    .bottomFunction {
+        font-size: 12px;
+    }
+    .createListC input,
+    .listName{
+        padding: .6em 1.8em .6em 3.5em;
+    }
+
+    .cross {
+        display: block;
+        background-size: 15px;
+    }
+
+    .showOnly {
+        visibility: hidden;
+    }
+
+    .showOnlyMobile {
+        position: absolute;
+        bottom: -70px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        color: var(--footer-Color);
+        background-color: var(--background-List-Color);
+        padding: 1.2em 4em;
+        border-radius: .3rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px;
+        overflow: auto;
+    }
+    .showAll:hover, .showOnlyActive:hover, .showOnlyCompleted:hover, .clearCompleted:hover{
+        color: inherit;
+    }
+    .footer {
+        bottom: -200px;
+    }
+}
